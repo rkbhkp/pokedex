@@ -1,17 +1,8 @@
 import logo from './pokeball_gray.png';
-import bar from './bar.svg';
-import ball from './pokeball_red.svg';
+import bar from './bar.png';
+import redball from './pokeball_red.svg';
 import './App.css';
 
-var db;
-
-var request = window.indexedDB.open("./../../DB/pokedex.sqlite", 3);
-request.onerror = function(event) {
-  console.log("Why didn't you allow my web app to use IndexedDB?!");
-};
-request.onsuccess = function(event) {
-  db = event.target.result;
-};
 /*// 1. Create the button
 var button = document.createElement("button");
 button.innerHTML = "Do Something";
@@ -29,31 +20,35 @@ function App() {
     <div >
       <div className="App">
         <header className="App-header">
+
           <p >
             NATIONAL POKeDEX
           </p>
         </header >
+      
 
-        <div class="fullwidth">
-          <div margin-right="auto">
+        <div id="body">
+        <div id="left-col">
+        <div class="container">
           <img src={logo} className="App-logo" alt="logo" />
-          </div>
+          <div class="centered">Centered</div>
         </div>
+        </div>
+        <div id="right-col">
+            <div id="inner-right">
+               <button id="home_button"></button>
+               <button id="home_button"></button>
+               <button id="home_button"></button>
+ 
+            </div>
+        </div>
+    </div>
+
 
 
         <content className="App-content">
-        <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            margin-right="auto"
-          >
-            Learn React
+          <a >
+            DMCA by Nintendo
           </a>
         </content>
       </div>
