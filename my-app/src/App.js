@@ -27,7 +27,7 @@ class ButtonClicks extends React.Component {
 
   render() {
     for (let i = 0; i < 10; i++) { //Moved your loop outside render()'s return
-      arrButtons.push(<button style={buttonStyle} onClick={this.onClick}>{i}</button>)
+      arrButtons.push(<button id="home_button" onClick={this.onClick}>{i}</button>)
     }
     return (
       <div>
@@ -58,10 +58,7 @@ function App() {
         </div>
         <div id="right-col">
             <div id="inner-right">
-               <button onClick={clickMe} id="home_button"></button>
-               <button onClick={clickMe} id="home_button"></button>
                <ButtonClicks/>
-
             </div>
         </div>
     </div>
