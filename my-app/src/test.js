@@ -5,13 +5,12 @@ import logo from './pokeball_gray.png';
 import bar from './bar.png';
 import redball from './pokeball_red.svg';
 import './App.css';
-import Main from './Main'
+
 
 
 function clickMe() {
   alert("You clicked me!");
 }
-
 
 
 var arrButtons = [];
@@ -45,11 +44,10 @@ function App() {
   return (
     <div >
       <div className="App">
-      <Main />
         <header className="App-header">
 
           <p >
-            NATIONAL POKeDEX
+            Test
           </p>
         </header >
       
@@ -57,21 +55,15 @@ function App() {
         <div id="body">
         <div id="left-col">
         <div class="container">
-          <img src={bar} id="home_button" alt="bar"/>
           <img src={logo} className="App-logo" alt="logo" />
           <div class="centered">Centered</div>
         </div>
         </div>
         <div id="right-col">
             <div id="inner-right">
-            <Link to="/PList">
-              <button variant="outlined">
-                Pokemon list
-              </button>
-            </Link>
             <Link to="/test">
               <button variant="outlined">
-                test
+                Sign up
               </button>
             </Link>
                <ButtonClicks/>

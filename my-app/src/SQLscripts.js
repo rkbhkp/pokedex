@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 
 //open db
-let db = new sqlite3.Database('./../../DB/pokedex.sqlite');
+let db = new sqlite3.Database('./..//DB/pokedex.sqlite');
 
 let sql = 'SELECT identifier Identifier FROM pokemon';
 
