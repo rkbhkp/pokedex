@@ -5,6 +5,4 @@ install SQLite on vscode extensions
     -that opens a tab under the file explorer called "SQLite Explorer" with the db
     -click the arrow or right click and open to open the desired db table
 
-To launch the app cd into my-app and do yarn start, this launches the app on your browser
-
-You can also run "node SQLscripts.js" and to test SQL scripts formated like the one in there currently is
+to compile the db just run compileDB.py with python or click the play button on the top right of vs code. This will create a file called pokedex_db.sqlite, you can open this file by right clicking and selecting 'open database' (requires SQLite to be installed on your vs code). You can then manipulate this database by using the commands file as well.

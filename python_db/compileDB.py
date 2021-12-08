@@ -4,7 +4,7 @@
 import sqlite3
 from sqlite3 import OperationalError
 
-conn = sqlite3.connect('pokedex_db.sqlite')
+conn = sqlite3.connect('python_db/pokedex_db.sqlite')
 c = conn.cursor()
 
 # def insert():
@@ -20,7 +20,7 @@ c = conn.cursor()
 
 # print(db)
 
-fd = open('Project.sql','r')
+fd = open('python_db/Project.sql','r')
 sqlFile = fd.read().replace('\n',' ').replace('\t',' ')
 
 fd.close()
