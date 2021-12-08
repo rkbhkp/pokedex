@@ -5,14 +5,37 @@ import redball from './pokeball_red.svg';
 import './App.css';
 
 
-
-// 1. Create the button
-
-
 function clickMe() {
   alert("You clicked me!");
 }
 
+
+var arrButtons = [];
+var buttonStyle = {
+    margin: '10px 10px 10px 0'
+};
+
+class ButtonClicks extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+  }
+  
+  onClick() {
+    console.log("hello world");
+  }
+
+  render() {
+    for (let i = 0; i < 10; i++) { //Moved your loop outside render()'s return
+      arrButtons.push(<button style={buttonStyle} onClick={this.onClick}>{i}</button>)
+    }
+    return (
+      <div>
+        {arrButtons} {/*Very important to wrap the buttons inside a div*/}
+      </div>
+    );
+  }
+}
 
 function App() {
   return (
@@ -37,7 +60,8 @@ function App() {
             <div id="inner-right">
                <button onClick={clickMe} id="home_button"></button>
                <button onClick={clickMe} id="home_button"></button>
-              
+               <ButtonClicks/>
+
             </div>
         </div>
     </div>
@@ -53,5 +77,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
