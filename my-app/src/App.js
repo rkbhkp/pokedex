@@ -1,20 +1,19 @@
+import React, { usestate } from "react";
 import logo from './pokeball_gray.png';
 import bar from './bar.png';
 import redball from './pokeball_red.svg';
 import './App.css';
 
-/*// 1. Create the button
-var button = document.createElement("button");
-button.innerHTML = "Do Something";
 
-// 2. Append somewhere
-//var body = document.getElementsByTagName("body")[0];
-//body.appendChild(button);
 
-// 3. Add event handler
-button.addEventListener ("click", function() {
-  alert("did something");
-});*/
+// 1. Create the button
+
+
+function clickMe() {
+  alert("You clicked me!");
+}
+
+
 function App() {
   return (
     <div >
@@ -36,10 +35,9 @@ function App() {
         </div>
         <div id="right-col">
             <div id="inner-right">
-               <button id="home_button"></button>
-               <button id="home_button"></button>
-               <button id="home_button"></button>
- 
+               <button onClick={clickMe} id="home_button"></button>
+               <button onClick={clickMe} id="home_button"></button>
+              
             </div>
         </div>
     </div>
