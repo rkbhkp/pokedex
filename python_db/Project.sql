@@ -28,7 +28,8 @@ CREATE TABLE Pokemon (
     m1 varchar(80) REFERENCES Move(m_name),
     m2 varchar(80) REFERENCES Move(m_name),
     m3 varchar(80) REFERENCES Move(m_name),
-    m4 varchar(80) REFERENCES Move(m_name)
+    m4 varchar(80) REFERENCES Move(m_name),
+    i_name varchar(80) REFERENCES Item(i_name)
 );
 
 
@@ -61,20 +62,6 @@ CREATE TABLE Game (
 );
 
 
-CREATE TABLE Usable (
-	p_id int REFERENCES Pokemon(id),
-    m_name varchar(80) REFERENCES Move(m_name)
-);
-
-CREATE TABLE Exists_in (
-	p_id int REFERENCES Pokemon(id),
-    g_name varchar(80) REFERENCES Game(g_name)
-);
-
-CREATE TABLE Equipable(
-	p_id int REFERENCES Pokemon(id),
-    i_name varchar(80) REFERENCES Item(i_name)
-);
 
 INSERT INTO Pokemon(id, p_name, p_type, p_type2, region, hp, attack, defense, sp_attack, sp_defense) 
 VALUES  (1.0,'Bulbasaur','Grass','Poison','Kanto',45.0,49.0,49.0,65.0,65.0),
