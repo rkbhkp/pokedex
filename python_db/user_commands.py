@@ -1,6 +1,6 @@
 import sqlite3
 import pandas
-
+#can be used to make if statments to see if there is a value in a column
 def has_value(cursor, table, column, value):
     query = 'SELECT 1 from {} WHERE {} = ? LIMIT 1'.format(table, column)
     return cursor.execute(query, (value,)).fetchone() is not None
@@ -11,13 +11,33 @@ c = conn.cursor()
 u_in = 'test'
 while(u_in != 'q'):
     print("----------Pokedex----------")
+    
     print("\tPlease select one of the options below")
+    print('\tPrint a team: t')
     print('\tAdd Move: m')
     print('\tAdd User: u')
     print('\tAssign pokemon to team slot: p')
     print("\tquit: q")
     u_in = input('\n\tselection: ')
-    if(u_in == 'm'):
+
+    #print the conetent of a team based on teamname or userid input from the user
+#could probably print the tables nicer using pandas or something similar but works good enough as is for now
+    if(u_in == 't'):
+        name = input('\n\tWhat is the UserId or Team name that you would like to print: ')
+        if has_value(c, 'User', 'user_id', name):
+            c.execute('''
+                    SELECT * FROM User WHERE user_id = '%s'
+                    '''%(name))
+            print(c.fetchall())
+        elif has_value(c, 'User', 'team_name', name):
+            c.execute('''
+                    SELECT * FROM User WHERE team_name = '%s'
+                    '''%(name))
+            print(c.fetchall())
+        else:
+            print('%s is not a valid UserId or team name'%(name))
+
+    elif(u_in == 'm'):
         try:
             # add move to pokemon
             p_id = input('\n\tWhat is the id of the pokemon you want to add: ')
@@ -25,7 +45,7 @@ while(u_in != 'q'):
             m_slot = input('\n\tWhat move slot do you want to add the move to (1-4): ')
             while(int(m_slot) < 1 or int(m_slot) > 4):
                 m_slot = input('\n\tPlease input a valid team slot (1-4): ')
-    #probably still needs to validate that the name of the move is a valid move
+#probably still needs to validate that the name of the move is a valid move
             c.execute('''
                     UPDATE Pokemon
                     SET %s = '%s'
@@ -59,8 +79,8 @@ while(u_in != 'q'):
 
             p_name = input('\n\tWhat is the name of the pokemon you want to add: ')
         
-    #currently it just accepts an name of the pokemon idealy we would allow this to accept any name that is in the list of pokemon,
-    # can probably accomplish this by something similar to how we validate if a user is already in the list
+ #currently it just accepts an name of the pokemon idealy we would allow this to accept any name that is in the list of pokemon,
+ # can probably accomplish this by something similar to how we validate if a user is already in the list
             c.execute('''
                     UPDATE User
                     Set %s = '%s'
