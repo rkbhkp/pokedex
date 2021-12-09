@@ -14,6 +14,7 @@ while(u_in != 'q'):
     
     print("\tPlease select one of the options below")
     print('\tPrint a team: t')
+    print('\tPrint Current stats for a pokemon: e')
     print('\tAdd Move: m')
     print('\tAdd User: u')
     print('\tAssign pokemon to team slot: p')
@@ -23,19 +24,40 @@ while(u_in != 'q'):
     #print the conetent of a team based on teamname or userid input from the user
 #could probably print the tables nicer using pandas or something similar but works good enough as is for now
     if(u_in == 't'):
-        name = input('\n\tWhat is the UserId or Team name that you would like to print: ')
-        if has_value(c, 'User', 'user_id', name):
-            c.execute('''
-                    SELECT * FROM User WHERE user_id = '%s'
-                    '''%(name))
-            print(c.fetchall())
-        elif has_value(c, 'User', 'team_name', name):
-            c.execute('''
-                    SELECT * FROM User WHERE team_name = '%s'
-                    '''%(name))
-            print(c.fetchall())
-        else:
-            print('%s is not a valid UserId or team name'%(name))
+        try:
+            name = input('\n\tWhat is the UserId or Team name that you would like to print: ')
+            if has_value(c, 'User', 'user_id', name):
+                c.execute('''
+                        SELECT * FROM User WHERE user_id = '%s'
+                        '''%(name))
+                print(c.fetchall())
+            elif has_value(c, 'User', 'team_name', name):
+                c.execute('''
+                        SELECT * FROM User WHERE team_name = '%s'
+                        '''%(name))
+                print(c.fetchall())
+            else:
+                print('%s is not a valid UserId or team name'%(name))
+        except:
+            print('\n\tERROR: Could not print Team name')
+    #print the moves of a pokemon
+    elif(u_in == 'e'):
+        try:
+            name = input('\n\tWhat is the pokemon name or pokemon ID that you would like to print: ')
+            if has_value(c, 'Pokemon', 'p_name', name):
+                c.execute('''
+                        SELECT * FROM Pokemon WHERE p_name = '%s'
+                        '''%(name))
+                print(c.fetchall())
+            elif has_value(c, 'Pokemon', 'id', name):
+                c.execute('''
+                        SELECT * FROM Pokemon WHERE id = '%s'
+                        '''%(name))
+                print(c.fetchall())
+            else:
+                print('%s is not a valid Pokemon name or Pokemon ID'%(name))
+        except:
+            print('\n\tERROR: Could not print pokemon stats')
 
     elif(u_in == 'm'):
         try:
