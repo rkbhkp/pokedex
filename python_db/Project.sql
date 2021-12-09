@@ -488,19 +488,7 @@ ON Pokemon
 FOR EACH ROW
 SET NEW.total_stats=NEW.hp+NEW.sp_attack+NEW.attack+NEW.defense+NEW.sp_defense;
 
-/* adds a user named test to the user table */;
-INSERT INTO User (user_id)
-VALUES ('test');
 
-/* adds the pokemon to the users team, still need to figure out how to input which pokemon they are adding */;
-UPDATE User
-Set P1 = 1
-WHERE user_id = 'test';
-
-UPDATE Pokemon
-SET m1 = 'Absorb'
-where id = 1;
-Select * from pokemon;
 
 
 SELECT * FROM User;
