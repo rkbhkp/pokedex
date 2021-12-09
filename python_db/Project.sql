@@ -1,5 +1,4 @@
 create database pokedex;
-use pokedex;
 /*Made in MySQL*/
 /* Creates tables */;
 CREATE TABLE User (
@@ -464,20 +463,6 @@ VALUES ('Antidote','Cure Poison status',100.0),
 SELECT * FROM Game;
 SELECT * FROM Move;
 SELECT * FROM Item;
-
-CREATE TRIGGER triggername BEFORE INSERT
-ON Pokemon
-FOR EACH ROW
-SET NEW.total_stats=NEW.hp+NEW.sp_attack+NEW.attack+NEW.defense+NEW.sp_defense;
-
-CREATE TRIGGER triggnername2 BEFORE UPDATE
-ON Pokemon
-FOR EACH ROW
-SET NEW.total_stats=NEW.hp+NEW.sp_attack+NEW.attack+NEW.defense+NEW.sp_defense;
-
-
-
-
 SELECT * FROM User;
 
 

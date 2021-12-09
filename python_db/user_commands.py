@@ -9,9 +9,9 @@ c = conn.cursor()
 
 u_in = 'test'
 while(u_in != 'q'):
-    print("----------Pokedex----------")
+    print("\n\n\t-----------------Pokedex-----------------")
     
-    print("\tPlease select one of the options below")
+    print("\tPlease select one of the options below: \n")
     print('\tPrint a team: t')
     print('\tPrint Current stats for a pokemon: e')
     print('\tAdd Move to a pokemon: m')
